@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Añadir noticia al dataset</h1>
+		<form id="formulario" name="formulario">
+			<textarea id="noticia" name="noticia" rows="10" cols="30"></textarea>
+			<select id="etiqueta" name="etiqueta" >
+				<option value=0>Noticia verdadera</option>
+				<option value=1>Noticia falsa</option>
+			<input id="anadir" type="button" value="Anadir noticia al dataset">
+		</form>
+		
+		<input id="reentrenar" type="button" value="Reentrenar modelo">
+        <div id="noticia-anadida">
+
+        </div>
+		<div id="modelo-entrenado">
+
+        </div>
+
+
+        <script>
+            $(document).ready(function()
+            {
+              $('#anadir').click(function()
+			    {
+					var noticia = $("#noticia").val();
+					var etiqueta = $("#etiqueta").val();
+					$.ajax(
+					{
+						url: 'http://localhost:5000/anadir-noticia/',
+						type: 'post',
+						data: {text: noticia, label: etiqueta},
+						success: function(result)
+						{
+							$('#noticia-anadida').html(result['Respuesta'])
+						}
+					});
+				});
+
+				$('#reentrenar').click(function()
+			    {
+					$.ajax(
+					{
+						url: 'http://localhost:5000/reentrenar-modelo/',
+						type: 'get',
+						success: function(result)
+						{
+							$('#modelo-entrenado').html(result['Respuesta'])
+						}
+					});
+				});
+            });
+        </script>
+    </body>
+</html>

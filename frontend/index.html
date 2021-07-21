@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Proyecto Grupal: Clasificador de Noticias (Fundación Esplai)</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container1">
+        <div class="introduce">
+          <form action="#" class="introduce1">
+            <h2 class="title">Clasificar Noticia</h2>
+            <div class="input-field">
+              <i class="fas fa-text-width"></i>
+              <input id="noticia" type="text" placeholder="Introduce o escribe la noticia a clasficar" />
+            </div>
+            <input id="clasi" type="submit" value="enviar" class="btn solid"/>
+            <div id="result">
+              <p class="social-text">% accuracy</p>
+            </div>
+          </form>
+
+          <form action="#" class="introduce2">
+            <h2 class="title1">¿Sabías que las noticias falsas pueden producir <span>graves consecuencias</span> tales como la hospitalización de más de 100 personas  por <span>intoxicación</span>?</h2>
+            <div id="myvideoDiv" style="display:none">
+              <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/bI0hfJ6ZVps" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <button class="btn-onclick" onclick="showHideVideo()">Mostrar video</button>
+            <p class="context-text">El 23 de abril de 2020, Donald Trump sugirió tratar el coronavirus con "una inyección" de "desinfectante" o con "luz solar".</p>
+            
+            <div id="myimageDiv" style="display:none">  
+              <img src="img/trump-noticia.png" width="500px" height="80px">
+            </div>
+            <button class="btn-onclick" onclick="showHideImage()">Mostrar noticia</button>
+
+            <p class="context-text">Como consecuencia, más de 100 personas fueron ingresados tras ingerir detergente o lejía por las indicaciones que dió el presidente estadounidense.</p>
+            <div >
+                <a class="a-documentacion" href="about.html" target="blank">Documentación del proyecto</a>
+            </div>
+
+
+            
+          </form>
+        </div>
+      </div>
+
+      <div class="container2">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>¿Quieres saber más del proyecto?</h3>
+            <p>
+
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Saber más
+            </button>
+          </div>
+          <img src="img/logo.jpeg" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>¿Quieres probar el clasificador?</h3>
+            <p>
+              Aproximadamente sólo el 14% de la población es capaz de detectar noticias falsas. 
+              Este clasificador propone una herramienta para garantizar la veracidad del contenido introducido 
+              y así advertir del potencial peligro de cierto contenido, 
+              estar al tanto de las desinformaciones y saber que su propagación tiene consecuencias. 
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Probar
+            </button>
+          </div>
+          <img src="img/browse.svg" class="filter-white" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js">
+      
+    </script>
+  </body>
+</html>

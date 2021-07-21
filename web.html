@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Proyecto Fakesp News</h1>
+        <textarea id="noticia" name="noticia" rows="10" cols="30"></textarea>
+        <input id="clasi" type="button" value="Clasificar">
+        <div id="result">
+        </div>
+		<img src="./api/datos.png" width="400">
+        <script>
+            $(document).ready(function()
+            {
+                $("#clasi").click(function()
+                {
+                    var noticia = $("#noticia").val();
+
+                    $.ajax(
+					{
+                                method: "GET",
+                                url: "http://localhost:5000/clasificar-noticia",
+                                dataType: 'text',
+                                data: {text: noticia},
+                                success: function(result)
+                                {
+									
+                                    var resultado = JSON.parse(result);
+                                    if(resultado.Resultado[0]==0)
+                                    {
+                                        $('#result').html("<p>Noticia verdadera</p>" + "<p>Confianza: " + (resultado.Confianza[0][0] * 100).toFixed(2) + "%</p>")
+                                    }
+                                    else
+                                    {
+                                        if(resultado.Resultado[0]==1)
+                                        {
+                                            $('#result').html("<p>Noticia falsa</p>" +"<p>Confianza: " + (resultado.Confianza[0][1] * 100).toFixed(2) + "%</p>")
+                                        }
+                                    } 
+                                }
+					});
+                });
+				
+            });
+        </script>
+    </body>
+</html>
